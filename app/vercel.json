@@ -1,0 +1,15 @@
+{
+    "version": 2,
+    "rewrites": [
+        {
+            "source": "/(.*)",
+            "destination": "/api/index.ts"
+        }
+    ],
+    "functions": {
+        "api/index.ts": {
+            "maxDuration": 10,
+            "includeFiles": "{src/**/*,content/**/*,server/**/*,dist/**/*,vite.config.ts,public/**/*,index.html}"
+        }
+    }
+}
