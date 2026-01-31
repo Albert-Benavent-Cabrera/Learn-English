@@ -34,5 +34,7 @@ These phrases will help you in basic daily situations, like asking for direction
 
 ## 📺 Recommended Videos
 
-- [50 Phrases Every English Beginner Must-Know](https://www.youtube.com/watch?v=BjGH9V7W-yA)
-- [Travel English: Hotel & Restaurants](https://www.youtube.com/watch?v=L9A0k6O2lJo)
+- [English Survival Phrases](https://www.youtube.com/watch?v=p_QlDdoSpnY)
+- [Most Important English Phrases](https://www.youtube.com/watch?v=XzjQV5oRtOQ)
+- [English for Beginners - Survival](https://www.youtube.com/watch?v=E-jmeDeXIho)
+- [Daily Survival English](https://www.youtube.com/watch?v=MYX7RVOf3Yc)

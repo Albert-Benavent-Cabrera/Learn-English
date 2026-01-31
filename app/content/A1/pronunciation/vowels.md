@@ -14,6 +14,8 @@ English has many vowel sounds. At the A1 level, focus on the differences between
 - **O:** Dog (short) / Nose (long)
 - **U:** Cup (short) / Blue (long)
 
-## 📺 Recommended Video
+## 📺 Recommended Videos
 
-- [Short vs. Long Vowel Sounds](https://www.youtube.com/watch?v=S2S6-S1lXms)
+- [English Vowels: Short vs. Long](https://www.youtube.com/shorts/S-H8H0tRheo)
+- [How to Pronounce English Vowels](https://www.youtube.com/watch?v=69DwHUg2f7s&t=63s)
+- [Practical Guide to Vowel Sounds](https://www.youtube.com/watch?v=gFBDxf-p0lE&t=235s)

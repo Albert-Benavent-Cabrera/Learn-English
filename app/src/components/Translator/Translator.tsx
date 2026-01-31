@@ -1,5 +1,13 @@
 import { useState, useActionState } from 'react';
-import { Languages, X, ArrowRight, Loader2, Copy, Check } from 'lucide-react';
+import {
+    Languages,
+    X,
+    ArrowRight,
+    Loader2,
+    Copy,
+    Check,
+    ArrowLeftRight,
+} from 'lucide-react';
 import { TranslationService } from '@/services/translation.service';
 import './Translator-style.css';
 
@@ -8,10 +16,13 @@ interface TranslationState {
     error: string | null;
 }
 
+type TranslationDirection = 'es-en' | 'en-es';
+
 export function Translator() {
     const [isOpen, setIsOpen] = useState(false);
-    const [text, setText] = useState(''); // Live fix: Enter key behavior
+    const [text, setText] = useState('');
     const [copied, setCopied] = useState(false);
+    const [direction, setDirection] = useState<TranslationDirection>('es-en');
 
     // Initial state for the translation action
     const initialState: TranslationState = { result: '', error: null };
@@ -19,14 +30,18 @@ export function Translator() {
     const [state, dispatchTranslate, isPending] = useActionState(
         async (
             _previousState: TranslationState,
-            textToTranslate: string
+            payload: { text: string; dir: TranslationDirection }
         ): Promise<TranslationState> => {
+            const { text: textToTranslate, dir } = payload;
             if (!textToTranslate.trim()) return initialState;
+
+            const source = dir === 'es-en' ? 'es' : 'en';
+            const target = dir === 'es-en' ? 'en-GB' : 'es';
 
             const data = await TranslationService.translate({
                 text: textToTranslate,
-                source: 'es',
-                target: 'en-GB',
+                source,
+                target,
             });
 
             return {
@@ -38,7 +53,12 @@ export function Translator() {
     );
 
     const handleTranslate = () => {
-        dispatchTranslate(text);
+        dispatchTranslate({ text, dir: direction });
+    };
+
+    const toggleDirection = () => {
+        setDirection((prev) => (prev === 'es-en' ? 'en-es' : 'es-en'));
+        // Optionally clear text or results when direction changes
     };
 
     const result = state.result || state.error;
@@ -49,8 +69,6 @@ export function Translator() {
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
     };
-
-    // Toggle scroll lock on body when open on mobile (optional, skipped for now to keep it simple)
 
     return (
         <div className="translator-widget">
@@ -64,22 +82,42 @@ export function Translator() {
                             <Languages size={16} className="text-blue-400" />
                             <span>Quick Translator</span>
                         </div>
-                        <button
-                            onClick={() => setIsOpen(false)}
-                            className="text-slate-400 hover:text-white transition-colors"
-                            data-testid="close-translator"
-                        >
-                            <X size={16} />
-                        </button>
+                        <div className="flex items-center gap-2">
+                            <button
+                                onClick={toggleDirection}
+                                className="flex items-center gap-1.5 px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-xs font-medium text-slate-300 transition-colors"
+                                title="Cambiar dirección"
+                            >
+                                {direction === 'es-en' ? (
+                                    <>
+                                        ES 🇪🇸 <ArrowLeftRight size={10} /> EN 🇬🇧
+                                    </>
+                                ) : (
+                                    <>
+                                        EN 🇬🇧 <ArrowLeftRight size={10} /> ES 🇪🇸
+                                    </>
+                                )}
+                            </button>
+                            <button
+                                onClick={() => setIsOpen(false)}
+                                className="text-slate-400 hover:text-white transition-colors p-1"
+                                data-testid="close-translator"
+                            >
+                                <X size={16} />
+                            </button>
+                        </div>
                     </div>
 
                     <textarea
                         className="translator-textarea"
-                        placeholder="Escribe en español..."
+                        placeholder={
+                            direction === 'es-en'
+                                ? 'Escribe en español...'
+                                : 'Write in English...'
+                        }
                         value={text}
                         onChange={(e) => setText(e.target.value)}
                         onKeyDown={(e) => {
-                            // Ctrl+Enter or Cmd+Enter to translate
                             if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
                                 e.preventDefault();
                                 handleTranslate();
@@ -97,7 +135,10 @@ export function Translator() {
                                 <Loader2 size={14} className="animate-spin" />
                             ) : (
                                 <>
-                                    Translate <ArrowRight size={14} />
+                                    {direction === 'es-en'
+                                        ? 'Traducir'
+                                        : 'Translate'}{' '}
+                                    <ArrowRight size={14} />
                                 </>
                             )}
                         </button>
@@ -111,7 +152,11 @@ export function Translator() {
                             <span
                                 className={`result-label ${state.error ? 'text-red-400' : ''}`}
                             >
-                                {state.error ? 'Error' : 'English'}
+                                {state.error
+                                    ? 'Error'
+                                    : direction === 'es-en'
+                                      ? 'English'
+                                      : 'Español'}
                             </span>
                             <p
                                 className={`result-text ${state.error ? 'text-red-200' : ''}`}

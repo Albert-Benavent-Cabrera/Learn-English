@@ -62,6 +62,13 @@ npm run dev
 ```
 > Starts hybrid server on port 3000 with Hot Module Replacement.
 
+### ⚡ Easy Launch (Mac & Windows)
+If you already have Node.js installed, you can start the application by double-clicking the script for your platform in the root directory:
+- **Mac**: Double-click `dev-mac.command`
+- **Windows**: Double-click `dev-windows.bat`
+
+*These scripts will automatically install dependencies if they are missing and open the browser for you.*
+
 ### Production
 ```bash
 cd app

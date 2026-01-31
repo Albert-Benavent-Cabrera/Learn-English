@@ -35,5 +35,6 @@ When you are learning English, these are the most important phrases you need to 
 
 ## 📺 Recommended Videos
 
-- [Classroom English: Vocabulary & Phrases for Students](https://www.youtube.com/watch?v=M5F_9jJbAfo)
-- [Useful Classroom Expressions](https://www.youtube.com/watch?v=LHdG9wDrzQQ)
+- [Classroom Language for Students](https://www.youtube.com/watch?v=sVX7imbwEq4)
+- [Classroom Objects and Phrases](https://www.youtube.com/watch?v=OqaL1YP0pNM)
+- [School & Classroom Expressions](https://www.youtube.com/watch?v=mgty3Bgu-YY)

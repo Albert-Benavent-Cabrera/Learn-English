@@ -78,3 +78,7 @@ These do not follow the rules. You must memorize them!
     - _Tom is taller **than** Jerry._
 - **Superlative**: A is **the** [adjective] (in/of...).
     - _Tom is **the** tallest in the class._
+
+## 📺 Recommended Videos
+
+- [Comparatives & Superlatives](https://www.youtube.com/watch?v=-881l3E72II)

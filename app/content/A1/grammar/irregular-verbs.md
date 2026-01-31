@@ -77,3 +77,10 @@ Complete the sentences with the correct past form of the verb:
 2.  **went**
 3.  **did**
 </details>
+
+## 📺 Recommended Videos
+
+- [Common Irregular Verbs in English](https://www.youtube.com/watch?v=iBNDChyqMrs)
+- [How to Learn Irregular Verbs](https://www.youtube.com/watch?v=jzcQ8JpKuH4)
+- [Practice Irregular Verbs](https://www.youtube.com/watch?v=6uqRJSBoXJU)
+- [Irregular Verbs Song / Rap](https://www.youtube.com/watch?v=iePc9-8yod8)
